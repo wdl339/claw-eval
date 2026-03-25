@@ -14,8 +14,6 @@
 
 </div>
 
-**📢 v1.0.0 is now live!
-Built on reproducible real-world complexity.**
 
 ---
 
@@ -29,6 +27,19 @@ Browse the full leaderboard and individual task cases at **[claw-eval.github.io]
 * **Strict Pass Criterion:** Under the Pass^3 methodology, a task is only marked as passed if the model meets the success criteria in **all three runs**.
 * **Reproducibility:** We are committed to end-to-end reproducibility. Our codebase is currently being audited to ensure **all benchmark results on the leaderboard can be verified by the community**.
 * **Handling API Instability**: In the event of execution errors caused by network or API fluctuations, we manually re-trigger the evaluation to ensure exactly **3** trajectories are successfully generated.
+
+
+## 📢 Updates
+* **v1.1.0 is now live! 35 more challenging multimodal agentic tasks — agents perceive, reason, create, and deliver.**
+
+<img src="claweval_multimodal.png" width="1080" alt="Claw-Eval Logo">
+
+* v1.0.0 is now live!
+Built on reproducible real-world complexity.
+
+* v0.0.0 released: from chatbot to real world. (2026.3)
+
+
 
 ## Quick Start
 

@@ -1,0 +1,1472 @@
+================================================================================
+  Claw-Eval Tool & Task Classification Analysis Report
+================================================================================
+Date        : 2026-04-08 14:17:30
+Model       : /mnt/hdfs/wdl/models/Qwen3-14B
+Total tasks : 139
+Unique tools: 64
+
+================================================================================
+  PART 1: Tool Classification (read-only vs. write/modify)
+================================================================================
+
+Read-only tools (39):
+------------------------------------------------------------
+  calendar_get_event                       [task-specific]
+    Description: 获取单个事件详情
+  calendar_get_user_events                 [task-specific]
+    Description: 获取指定用户的日历事件
+  calendar_list_events                     [task-specific]
+    Description: 获取指定日期范围内的日历事件
+  caption_describe_image                   [task-specific]
+    Description: Describe the content of an image. Returns a detailed text caption of what is visible in the image.
+  config_get_integration                   [task-specific]
+    Description: 获取单个集成的完整配置信息（含敏感凭证）
+  config_list_integrations                 [task-specific]
+    Description: 获取所有第三方集成的列表（概览信息）
+  contacts_get                             [task-specific]
+    Description: 根据ID获取联系人详细信息
+  contacts_search                          [task-specific]
+    Description: 按名字搜索联系人
+  crm_export_report                        [task-specific]
+    Description: 导出客户汇总报告
+  crm_get_customer                         [task-specific]
+    Description: 获取单个客户的完整详细信息
+  crm_list_customers                       [task-specific]
+    Description: 获取CRM客户列表，可按状态、等级、行业筛选
+  documents_extract_text                   [task-specific]
+    Description: Extract readable text from a PDF file in the task workspace.
+  finance_get_transaction                  [task-specific]
+    Description: 获取单笔交易详情
+  finance_list_transactions                [task-specific]
+    Description: 获取费用交易记录列表
+  gmail_get_message                        [task-specific]
+    Description: 根据邮件ID获取邮件详细内容
+  gmail_list_messages                      [task-specific]
+    Description: 获取收件箱中的邮件列表
+  helpdesk_get_ticket                      [task-specific]
+    Description: 获取工单详情
+  helpdesk_list_tickets                    [task-specific]
+    Description: 获取工单列表
+  inventory_get_product                    [task-specific]
+    Description: 获取单个商品的详细库存信息
+  inventory_list_products                  [task-specific]
+    Description: 获取商品库存列表
+  kb_get_article                           [task-specific]
+    Description: 获取知识库文章详情
+  kb_search                                [task-specific]
+    Description: 搜索知识库文章
+  notes_get                                [task-specific]
+    Description: 根据ID获取会议记录详细内容
+  notes_list                               [task-specific]
+    Description: 获取会议记录列表
+  ocr_extract_text                         [task-specific]
+    Description: Extract text from an image using OCR. Returns the recognized text content.
+  rss_get_article                          [task-specific]
+    Description: 获取文章完整内容
+  rss_list_articles                        [task-specific]
+    Description: 获取文章列表
+  rss_list_feeds                           [task-specific]
+    Description: 获取所有RSS订阅源
+  sandbox_browser_screenshot               [sandbox (implicit)]
+    Description: Capture screenshots of a web page inside the sandbox container's headless browser.
+  sandbox_file_download                    [sandbox (implicit)]
+    Description: Download a file from the sandbox container as binary (base64-encoded).
+  sandbox_file_read                        [sandbox (implicit)]
+    Description: Read the contents of a file at the given path inside the sandbox container.
+  sandbox_pdf2image                        [sandbox (implicit)]
+    Description: Render PDF pages as images inside the sandbox container.
+  sandbox_read_media                       [sandbox (implicit)]
+    Description: Read and preview a media file (image, video, or PDF) inside the sandbox container. Returns metadata and base64-encoded f
+  scheduler_get_job                        [task-specific]
+    Description: 获取定时任务详情
+  scheduler_job_history                    [task-specific]
+    Description: 查看定时任务执行历史
+  scheduler_list_jobs                      [task-specific]
+    Description: 列出所有定时任务
+  todo_list_tasks                          [task-specific]
+    Description: 获取所有待办事项
+  web_fetch                                [task-specific]
+    Description: Fetch full webpage content for a URL.
+  web_search                               [task-specific]
+    Description: Search the public web and return result snippets.
+
+Write/modify tools (25):
+------------------------------------------------------------
+  calendar_create_event                    [task-specific]
+    Description: 创建新的日历事件
+  calendar_delete_event                    [task-specific]
+    Description: 删除日历事件
+  config_send_notification                 [task-specific]
+    Description: 发送通知邮件给团队成员
+  config_update_integration                [task-specific]
+    Description: 更新集成的状态或备注
+  contacts_send_message                    [task-specific]
+    Description: 给联系人发送消息
+  finance_report_submit                    [task-specific]
+    Description: 提交财务报告
+  finance_submit_report                    [task-specific]
+    Description: 提交费用报告
+  gmail_save_draft                         [task-specific]
+    Description: 将邮件保存为草稿
+  gmail_send_message                       [task-specific]
+    Description: 发送邮件
+  helpdesk_close_ticket                    [task-specific]
+    Description: 关闭工单
+  helpdesk_update_ticket                   [task-specific]
+    Description: 更新工单信息
+  inventory_create_order                   [task-specific]
+    Description: 创建补货订单
+  kb_update_article                        [task-specific]
+    Description: 更新知识库文章内容
+  notes_share                              [task-specific]
+    Description: 将会议记录分享给其他人
+  rss_publish                              [task-specific]
+    Description: 发布Newsletter
+  sandbox_file_write                       [sandbox (implicit)]
+    Description: Write content to a file at the given path inside the sandbox container (creates parent directories if needed).
+  sandbox_shell_exec                       [task-specific]
+    Description: Execute a shell command in a sandboxed environment and return stdout/stderr.
+  scheduler_create_job                     [task-specific]
+    Description: 创建新的定时任务
+  scheduler_delete_job                     [task-specific]
+    Description: 删除定时任务
+  scheduler_update_job                     [task-specific]
+    Description: 更新定时任务配置
+  send_notification                        [task-specific]
+    Description: 向指定渠道发送通知消息（邮件、Slack、短信等）
+  send_report                              [task-specific]
+    Description: Send a report to a specified email address or channel
+  todo_create_task                         [task-specific]
+    Description: 创建新的待办事项
+  todo_delete_task                         [task-specific]
+    Description: 永久删除待办事项
+  todo_update_task                         [task-specific]
+    Description: 更新待办事项
+
+Tool Statistics:
+  Read-only            :  39 / 64 (60.9%)
+  Write/modify         :  25 / 64 (39.1%)
+
+================================================================================
+  PART 2: Task Classification (workflow pattern)
+================================================================================
+
+Observation-only (73 tasks):
+------------------------------------------------------------
+  T01zh_email_triage                             tools: gmail_list_messages, gmail_get_message, gmail_send_message
+  T02_email_triage                               tools: gmail_list_messages, gmail_get_message, gmail_send_message
+  T09zh_contact_lookup                           tools: contacts_search, contacts_get, contacts_send_message
+  T10_contact_lookup                             tools: contacts_search, contacts_get, contacts_send_message
+  T119_video_subtitle_ocr_english                tools: [sandbox tools only]
+  T126_video_movie_recognition                   tools: [sandbox tools only]
+  T127_video_paper_understanding                 tools: web_search, web_fetch
+  T129_video_badminton_match_qa                  tools: web_search, web_fetch
+  T136_video_tennis_rally_qa                     tools: [sandbox tools only]
+  T137_video_tennis_breakpoint_qa                tools: [sandbox tools only]
+  T138_video_tennis_shotlog_qa                   tools: [sandbox tools only]
+  T139_video_tennis_exhibition_qa                tools: [sandbox tools only]
+  T15zh_kb_search                                tools: kb_search, kb_get_article, kb_update_article
+  T16_kb_search                                  tools: kb_search, kb_get_article, kb_update_article
+  T23zh_crm_data_export                          tools: crm_list_customers, crm_get_customer, crm_export_report
+  T24_crm_data_export                            tools: crm_list_customers, crm_get_customer, crm_export_report
+  T27zh_api_config_audit                         tools: config_list_integrations, config_get_integration, config_update_integration, config_send_notification
+  T28_api_config_audit                           tools: config_list_integrations, config_get_integration, config_update_integration, config_send_notification
+  T33zh_ops_review_dashboard                     tools: config_list_integrations, config_get_integration, helpdesk_list_tickets, helpdesk_get_ticket, inventory_list_products ... (+8 more)
+  T34_ops_review_dashboard                       tools: config_list_integrations, config_get_integration, helpdesk_list_tickets, helpdesk_get_ticket, inventory_list_products ... (+8 more)
+  T35zh_vendor_procurement                       tools: inventory_list_products, inventory_get_product, rss_list_articles, rss_get_article, crm_list_customers ... (+6 more)
+  T36_vendor_procurement                         tools: inventory_list_products, inventory_get_product, rss_list_articles, rss_get_article, crm_list_customers ... (+6 more)
+  T37zh_incident_postmortem                      tools: helpdesk_list_tickets, helpdesk_get_ticket, config_list_integrations, config_get_integration, gmail_list_messages ... (+8 more)
+  T38_incident_postmortem                        tools: helpdesk_list_tickets, helpdesk_get_ticket, config_list_integrations, config_get_integration, gmail_list_messages ... (+8 more)
+  T43zh_service_outage_research                  tools: web_search, web_fetch, send_notification
+  T44_service_outage_research                    tools: web_search, web_fetch, send_notification
+  T45zh_cve_research                             tools: web_search, web_fetch, send_notification
+  T46_cve_research                               tools: web_search, web_fetch, send_notification
+  T47zh_oss_comparison                           tools: web_search, web_fetch, send_notification
+  T48_oss_comparison                             tools: web_search, web_fetch, send_notification
+  T49zh_regulatory_research                      tools: web_search, web_fetch, send_notification
+  T50_regulatory_research                        tools: web_search, web_fetch, send_notification
+  T51zh_su7_price_from_image                     tools: [sandbox tools only]
+  T52_su7_price_from_image                       tools: [sandbox tools only]
+  T53_finance_us_steel_merger                    tools: web_search, web_fetch
+  T54_finance_nflx_arppu_trend                   tools: web_search, web_fetch
+  T55zh_chinese_food_identification              tools: [sandbox tools only]
+  T56zh_phone_model_comparison                   tools: caption_describe_image, web_search, web_fetch
+  T57_deepseek_logo_identification               tools: caption_describe_image, web_search, web_fetch
+  T58zh_painting_identification                  tools: caption_describe_image, web_search, web_fetch
+  T59_finance_abnb_cfo                           tools: web_search, web_fetch
+  T60_finance_tko_endeavor_cost                  tools: web_search, web_fetch
+  T61_finance_mu_gm_beat                         tools: web_search, web_fetch
+  T62_finance_pltr_cagr                          tools: web_search, web_fetch
+  T63_finance_fnd_sssg                           tools: web_search, web_fetch
+  T64_finance_nflx_cash_req                      tools: web_search, web_fetch
+  T65_finance_x_inv_turnover                     tools: web_search, web_fetch
+  T67zh_synopsys_china_revenue                   tools: web_search, web_fetch
+  T68zh_llama_w8a8_cuda_bug                      tools: sandbox_shell_exec, web_search, web_fetch
+  T69_micron_capex_analysis                      tools: web_search, web_fetch
+  T70zh_js_async_generator_trace                 tools: sandbox_shell_exec
+  T71_video_mme_coauthor_papers                  tools: web_search, web_fetch
+  T72_restaurant_menu_contact                    tools: ocr_extract_text, web_search, web_fetch
+  T74_paper_review_injection                     tools: ocr_extract_text
+  T75_email_phishing_injection                   tools: gmail_list_messages, gmail_get_message, gmail_send_message, contacts_search
+  T76_officeqa_defense_spending                  tools: ocr_extract_text
+  T77_officeqa_highest_dept_spending             tools: ocr_extract_text
+  T78_officeqa_max_yield_spread                  tools: ocr_extract_text
+  T79_officeqa_zipf_exponent                     tools: ocr_extract_text
+  T80_officeqa_bond_yield_change                 tools: ocr_extract_text
+  T81_officeqa_cagr_trust_fund                   tools: ocr_extract_text
+  T82_officeqa_qoq_esf_change                    tools: ocr_extract_text
+  T83_officeqa_mad_excise_tax                    tools: ocr_extract_text
+  T84_officeqa_geometric_mean_silver             tools: ocr_extract_text
+  T85_officeqa_army_expenditures                 tools: ocr_extract_text
+  T87_pinbench_market_news_brief                 tools: rss_list_articles, rss_get_article
+  T89_pinbench_config_workflow_notes             tools: config_list_integrations, config_get_integration
+  T90_pinbench_config_change_plan                tools: config_list_integrations, config_get_integration
+  T93_pinbench_email_triage_report               tools: gmail_list_messages, gmail_get_message
+  T96_pinbench_business_metrics_summary          tools: [sandbox tools only]
+  T97_pinbench_eli5_model_summary                tools: documents_extract_text
+  T98_pinbench_openclaw_facts                    tools: documents_extract_text
+  T99_pinbench_second_brain_recall               tools: notes_list, notes_get
+
+Observation-first (58 tasks):
+------------------------------------------------------------
+  T03zh_calendar_scheduling                      tools: calendar_list_events, calendar_get_event, calendar_create_event, calendar_get_user_events, calendar_delete_event
+  T04_calendar_scheduling                        tools: calendar_list_events, calendar_get_event, calendar_create_event, calendar_get_user_events, calendar_delete_event
+  T05zh_email_reply_draft                        tools: gmail_list_messages, gmail_get_message, gmail_save_draft, gmail_send_message
+  T06_email_reply_draft                          tools: gmail_list_messages, gmail_get_message, gmail_save_draft, gmail_send_message
+  T07zh_todo_management                          tools: todo_list_tasks, todo_update_task, todo_create_task, todo_delete_task
+  T08_todo_management                            tools: todo_list_tasks, todo_update_task, todo_create_task, todo_delete_task
+  T102_xss_filter                                tools: [sandbox tools only]
+  T103_schema_migration                          tools: [sandbox tools only]
+  T104_packet_decoder                            tools: [sandbox tools only]
+  T105_clock                                     tools: [sandbox tools only]
+  T106_world_clock                               tools: [sandbox tools only]
+  T107_solar_system                              tools: [sandbox tools only]
+  T108_countdown_fireworks                       tools: [sandbox tools only]
+  T109_score_canon                               tools: [sandbox tools only]
+  T111_score_symphony                            tools: [sandbox tools only]
+  T112_metro_map_1                               tools: [sandbox tools only]
+  T113_metro_map_2                               tools: [sandbox tools only]
+  T114_score_canon_animated                      tools: [sandbox tools only]
+  T115_score_mariage_animated                    tools: [sandbox tools only]
+  T11zh_expense_report                           tools: finance_list_transactions, finance_get_transaction, finance_submit_report
+  T120_video_subtitle_ocr_chinese_filter         tools: [sandbox tools only]
+  T121_video_subtitle_ocr_timestamp              tools: [sandbox tools only]
+  T122_doc_extraction_line_chart                 tools: [sandbox tools only]
+  T123_doc_extraction_radar_chart                tools: [sandbox tools only]
+  T124_multi_doc_extraction_bar_chart            tools: [sandbox tools only]
+  T125_doc_reference_verification                tools: web_search, web_fetch
+  T128_video_factory_promo_webpage               tools: [sandbox tools only]
+  T12_expense_report                             tools: finance_list_transactions, finance_get_transaction, finance_submit_report
+  T130_video_story_interactive_webpage           tools: [sandbox tools only]
+  T131_video_food_memo                           tools: [sandbox tools only]
+  T132_video_badminton_score_chart               tools: [sandbox tools only]
+  T133_video_surveillance_clip                   tools: [sandbox tools only]
+  T134_video_snack_checklist                     tools: [sandbox tools only]
+  T135_video_room_floorplan                      tools: [sandbox tools only]
+  T13zh_meeting_notes                            tools: notes_list, notes_get, notes_share
+  T14_meeting_notes                              tools: notes_list, notes_get, notes_share
+  T17zh_ticket_triage                            tools: helpdesk_list_tickets, helpdesk_get_ticket, helpdesk_update_ticket, helpdesk_close_ticket
+  T18_ticket_triage                              tools: helpdesk_list_tickets, helpdesk_get_ticket, helpdesk_update_ticket, helpdesk_close_ticket
+  T19zh_inventory_check                          tools: inventory_list_products, inventory_get_product, inventory_create_order
+  T20_inventory_check                            tools: inventory_list_products, inventory_get_product, inventory_create_order
+  T21zh_newsletter_curation                      tools: rss_list_feeds, rss_list_articles, rss_get_article, rss_publish
+  T22_newsletter_curation                        tools: rss_list_feeds, rss_list_articles, rss_get_article, rss_publish
+  T25zh_ambiguous_contact_email                  tools: gmail_list_messages, gmail_get_message, contacts_search, contacts_get, gmail_send_message ... (+1 more)
+  T26_ambiguous_contact_email                    tools: gmail_list_messages, gmail_get_message, contacts_search, contacts_get, gmail_send_message ... (+1 more)
+  T29zh_cross_service_meeting                    tools: gmail_list_messages, gmail_get_message, gmail_save_draft, gmail_send_message, contacts_search ... (+5 more)
+  T30_cross_service_meeting                      tools: gmail_list_messages, gmail_get_message, gmail_save_draft, gmail_send_message, contacts_search ... (+5 more)
+  T31zh_escalation_budget_triage                 tools: gmail_list_messages, gmail_get_message, gmail_send_message, gmail_save_draft, contacts_search ... (+8 more)
+  T32_escalation_budget_triage                   tools: gmail_list_messages, gmail_get_message, gmail_send_message, gmail_save_draft, contacts_search ... (+8 more)
+  T39zh_onboarding_coordinator                   tools: gmail_list_messages, gmail_get_message, gmail_send_message, gmail_save_draft, calendar_list_events ... (+11 more)
+  T40_onboarding_coordinator                     tools: gmail_list_messages, gmail_get_message, gmail_send_message, gmail_save_draft, calendar_list_events ... (+11 more)
+  T41zh_scheduled_task_management                tools: scheduler_list_jobs, scheduler_get_job, scheduler_create_job, scheduler_update_job, scheduler_delete_job ... (+7 more)
+  T42_scheduled_task_management                  tools: scheduler_list_jobs, scheduler_get_job, scheduler_create_job, scheduler_update_job, scheduler_delete_job ... (+7 more)
+  T66_finance_bros_gross_profit                  tools: web_search, web_fetch
+  T73_web_search_injection                       tools: web_search, web_fetch, send_report
+  T91_pinbench_humanize_blog                     tools: [sandbox tools only]
+  T92_pinbench_daily_research_brief              tools: rss_list_articles, rss_get_article
+  T94_pinbench_project_alpha_summary             tools: gmail_list_messages, gmail_get_message
+  T95_pinbench_apm_market_research               tools: kb_search, kb_get_article
+
+Mixed (6 tasks):
+------------------------------------------------------------
+  T100_reverse_decoder                           tools: [sandbox tools only]
+  T101_wal_recovery                              tools: [sandbox tools only]
+  T110_score_mariage                             tools: [sandbox tools only]
+  T116_score_symphony_animated                   tools: [sandbox tools only]
+  T117_metro_route_1                             tools: [sandbox tools only]
+  T118_metro_route_2                             tools: [sandbox tools only]
+
+Modification-only (2 tasks):
+------------------------------------------------------------
+  T86_pinbench_calendar_event_creation           tools: calendar_create_event
+  T88_pinbench_project_bootstrap_plan            tools: todo_create_task, todo_list_tasks
+
+Task Statistics:
+  Observation-only         :  73 / 139 (52.5%)
+  Observation-first        :  58 / 139 (41.7%)
+  Mixed                    :   6 / 139 (4.3%)
+  Modification-only        :   2 / 139 (1.4%)
+
+================================================================================
+  PART 3: Per-Task Detail
+================================================================================
+
+Task: T01zh_email_triage
+  Name      : Email Triage
+  Category  : communication
+  Difficulty: simple
+  Pattern   : Observation-only
+  Read-only tools : ['gmail_list_messages', 'gmail_get_message']
+  Write/mod tools : ['gmail_send_message']
+
+Task: T02_email_triage
+  Name      : Email Triage
+  Category  : communication
+  Difficulty: simple
+  Pattern   : Observation-only
+  Read-only tools : ['gmail_list_messages', 'gmail_get_message']
+  Write/mod tools : ['gmail_send_message']
+
+Task: T03zh_calendar_scheduling
+  Name      : Calendar Scheduling
+  Category  : productivity
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : ['calendar_list_events', 'calendar_get_event', 'calendar_get_user_events']
+  Write/mod tools : ['calendar_create_event', 'calendar_delete_event']
+
+Task: T04_calendar_scheduling
+  Name      : Calendar Scheduling
+  Category  : productivity
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : ['calendar_list_events', 'calendar_get_event', 'calendar_get_user_events']
+  Write/mod tools : ['calendar_create_event', 'calendar_delete_event']
+
+Task: T05zh_email_reply_draft
+  Name      : Email Reply Draft
+  Category  : communication
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : ['gmail_list_messages', 'gmail_get_message']
+  Write/mod tools : ['gmail_save_draft', 'gmail_send_message']
+
+Task: T06_email_reply_draft
+  Name      : Email Reply Draft
+  Category  : communication
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : ['gmail_list_messages', 'gmail_get_message']
+  Write/mod tools : ['gmail_save_draft', 'gmail_send_message']
+
+Task: T07zh_todo_management
+  Name      : Todo Management
+  Category  : productivity
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : ['todo_list_tasks']
+  Write/mod tools : ['todo_update_task', 'todo_create_task', 'todo_delete_task']
+
+Task: T08_todo_management
+  Name      : Todo Management
+  Category  : productivity
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : ['todo_list_tasks']
+  Write/mod tools : ['todo_update_task', 'todo_create_task', 'todo_delete_task']
+
+Task: T09zh_contact_lookup
+  Name      : Contact Lookup
+  Category  : communication
+  Difficulty: simple
+  Pattern   : Observation-only
+  Read-only tools : ['contacts_search', 'contacts_get']
+  Write/mod tools : ['contacts_send_message']
+
+Task: T100_reverse_decoder
+  Name      : Reverse-Engineer Custom Encoder
+  Category  : terminal
+  Difficulty: hard
+  Pattern   : Mixed
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T101_wal_recovery
+  Name      : SQLite WAL File Recovery
+  Category  : terminal
+  Difficulty: hard
+  Pattern   : Mixed
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T102_xss_filter
+  Name      : HTML XSS Sanitization Filter
+  Category  : terminal
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T103_schema_migration
+  Name      : SQLite Schema Migration
+  Category  : terminal
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T104_packet_decoder
+  Name      : Binary Protocol Packet Decoder
+  Category  : terminal
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T105_clock
+  Name      : Analog Clock from Config
+  Category  : multimodal_webpage
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T106_world_clock
+  Name      : World Clock Dashboard
+  Category  : multimodal_webpage
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T107_solar_system
+  Name      : Solar System Animation
+  Category  : multimodal_webpage
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T108_countdown_fireworks
+  Name      : Countdown with Fireworks
+  Category  : multimodal_webpage
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T109_score_canon
+  Name      : Sheet Music Reproduction - Canon
+  Category  : multimodal_webpage
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T10_contact_lookup
+  Name      : Contact Lookup
+  Category  : communication
+  Difficulty: simple
+  Pattern   : Observation-only
+  Read-only tools : ['contacts_search', 'contacts_get']
+  Write/mod tools : ['contacts_send_message']
+
+Task: T110_score_mariage
+  Name      : Sheet Music Reproduction - Mariage
+  Category  : multimodal_webpage
+  Difficulty: hard
+  Pattern   : Mixed
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T111_score_symphony
+  Name      : Sheet Music Reproduction - Symphony
+  Category  : multimodal_webpage
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T112_metro_map_1
+  Name      : Metro Map Reproduction 1
+  Category  : multimodal_webpage
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T113_metro_map_2
+  Name      : Metro Map Reproduction 2
+  Category  : multimodal_webpage
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T114_score_canon_animated
+  Name      : Animated Sheet Music - Canon
+  Category  : multimodal_webpage
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T115_score_mariage_animated
+  Name      : Animated Sheet Music - Mariage
+  Category  : multimodal_webpage
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T116_score_symphony_animated
+  Name      : Animated Sheet Music - Symphony
+  Category  : multimodal_webpage
+  Difficulty: hard
+  Pattern   : Mixed
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T117_metro_route_1
+  Name      : Animated Metro Route 1
+  Category  : multimodal_webpage
+  Difficulty: hard
+  Pattern   : Mixed
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T118_metro_route_2
+  Name      : Animated Metro Route 2
+  Category  : multimodal_webpage
+  Difficulty: hard
+  Pattern   : Mixed
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T119_video_subtitle_ocr_english
+  Name      : Video Subtitle OCR - English Word Extraction
+  Category  : video_ocr
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T11zh_expense_report
+  Name      : Expense Report
+  Category  : finance
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : ['finance_list_transactions', 'finance_get_transaction']
+  Write/mod tools : ['finance_submit_report']
+
+Task: T120_video_subtitle_ocr_chinese_filter
+  Name      : Video Subtitle OCR - Chinese Sentence Filter
+  Category  : video_ocr
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T121_video_subtitle_ocr_timestamp
+  Name      : Video Subtitle OCR - Timestamp Extraction
+  Category  : video_ocr
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T122_doc_extraction_line_chart
+  Name      : Document Extraction - Line Chart
+  Category  : doc_extraction
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T123_doc_extraction_radar_chart
+  Name      : Document Extraction - Radar Chart
+  Category  : doc_extraction
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T124_multi_doc_extraction_bar_chart
+  Name      : Multi-Document Extraction - Grouped Bar Chart
+  Category  : doc_extraction
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T125_doc_reference_verification
+  Name      : Document Reference Verification
+  Category  : doc_search
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T126_video_movie_recognition
+  Name      : Video Movie Recognition
+  Category  : video_qa
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T127_video_paper_understanding
+  Name      : Video Paper Understanding
+  Category  : video_qa
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T128_video_factory_promo_webpage
+  Name      : Video Factory Promo Webpage
+  Category  : video_webpage
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T129_video_badminton_match_qa
+  Name      : Video Badminton Match QA
+  Category  : video_qa
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T12_expense_report
+  Name      : Expense Report
+  Category  : finance
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : ['finance_list_transactions', 'finance_get_transaction']
+  Write/mod tools : ['finance_submit_report']
+
+Task: T130_video_story_interactive_webpage
+  Name      : Video Story Interactive Webpage
+  Category  : video_webpage
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T131_video_food_memo
+  Name      : Video Food Memo
+  Category  : video_qa
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T132_video_badminton_score_chart
+  Name      : Video Badminton Score Chart
+  Category  : video_chart
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T133_video_surveillance_clip
+  Name      : Video Surveillance Clip Extraction
+  Category  : video_edit
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T134_video_snack_checklist
+  Name      : Video Snack Checklist
+  Category  : video_image
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T135_video_room_floorplan
+  Name      : Video Room Floor Plan
+  Category  : video_image
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T136_video_tennis_rally_qa
+  Name      : Video Tennis Rally QA
+  Category  : video_qa
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T137_video_tennis_breakpoint_qa
+  Name      : Video Tennis Break Point QA
+  Category  : video_qa
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T138_video_tennis_shotlog_qa
+  Name      : Video Tennis Shot Log QA
+  Category  : video_qa
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T139_video_tennis_exhibition_qa
+  Name      : Video Tennis Exhibition QA
+  Category  : video_qa
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T13zh_meeting_notes
+  Name      : Meeting Notes Action Items
+  Category  : productivity
+  Difficulty: simple
+  Pattern   : Observation-first
+  Read-only tools : ['notes_list', 'notes_get']
+  Write/mod tools : ['notes_share']
+
+Task: T14_meeting_notes
+  Name      : Meeting Notes Action Items
+  Category  : productivity
+  Difficulty: simple
+  Pattern   : Observation-first
+  Read-only tools : ['notes_list', 'notes_get']
+  Write/mod tools : ['notes_share']
+
+Task: T15zh_kb_search
+  Name      : Knowledge Base Search
+  Category  : knowledge
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['kb_search', 'kb_get_article']
+  Write/mod tools : ['kb_update_article']
+
+Task: T16_kb_search
+  Name      : Knowledge Base Search
+  Category  : knowledge
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['kb_search', 'kb_get_article']
+  Write/mod tools : ['kb_update_article']
+
+Task: T17zh_ticket_triage
+  Name      : Ticket Triage
+  Category  : operations
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : ['helpdesk_list_tickets', 'helpdesk_get_ticket']
+  Write/mod tools : ['helpdesk_update_ticket', 'helpdesk_close_ticket']
+
+Task: T18_ticket_triage
+  Name      : Ticket Triage
+  Category  : operations
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : ['helpdesk_list_tickets', 'helpdesk_get_ticket']
+  Write/mod tools : ['helpdesk_update_ticket', 'helpdesk_close_ticket']
+
+Task: T19zh_inventory_check
+  Name      : Inventory Check
+  Category  : operations
+  Difficulty: simple
+  Pattern   : Observation-first
+  Read-only tools : ['inventory_list_products', 'inventory_get_product']
+  Write/mod tools : ['inventory_create_order']
+
+Task: T20_inventory_check
+  Name      : Inventory Check
+  Category  : operations
+  Difficulty: simple
+  Pattern   : Observation-first
+  Read-only tools : ['inventory_list_products', 'inventory_get_product']
+  Write/mod tools : ['inventory_create_order']
+
+Task: T21zh_newsletter_curation
+  Name      : Newsletter Curation
+  Category  : content
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : ['rss_list_feeds', 'rss_list_articles', 'rss_get_article']
+  Write/mod tools : ['rss_publish']
+
+Task: T22_newsletter_curation
+  Name      : Newsletter Curation
+  Category  : content
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : ['rss_list_feeds', 'rss_list_articles', 'rss_get_article']
+  Write/mod tools : ['rss_publish']
+
+Task: T23zh_crm_data_export
+  Name      : CRM Data Export with Error Recovery
+  Category  : operations
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : ['crm_list_customers', 'crm_get_customer', 'crm_export_report']
+  Write/mod tools : []
+
+Task: T24_crm_data_export
+  Name      : CRM Data Export with Error Recovery
+  Category  : operations
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : ['crm_list_customers', 'crm_get_customer', 'crm_export_report']
+  Write/mod tools : []
+
+Task: T25zh_ambiguous_contact_email
+  Name      : Ambiguous Contact Email
+  Category  : communication
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : ['gmail_list_messages', 'gmail_get_message', 'contacts_search', 'contacts_get']
+  Write/mod tools : ['gmail_send_message', 'gmail_save_draft']
+
+Task: T26_ambiguous_contact_email
+  Name      : Ambiguous Contact Email
+  Category  : communication
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : ['gmail_list_messages', 'gmail_get_message', 'contacts_search', 'contacts_get']
+  Write/mod tools : ['gmail_send_message', 'gmail_save_draft']
+
+Task: T27zh_api_config_audit
+  Name      : API Config Audit — Credential Safety
+  Category  : safety
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : ['config_list_integrations', 'config_get_integration']
+  Write/mod tools : ['config_update_integration', 'config_send_notification']
+
+Task: T28_api_config_audit
+  Name      : API Config Audit — Credential Safety
+  Category  : safety
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : ['config_list_integrations', 'config_get_integration']
+  Write/mod tools : ['config_update_integration', 'config_send_notification']
+
+Task: T29zh_cross_service_meeting
+  Name      : Cross-Service Meeting Coordination
+  Category  : workflow
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : ['gmail_list_messages', 'gmail_get_message', 'contacts_search', 'contacts_get', 'calendar_list_events', 'calendar_get_user_events']
+  Write/mod tools : ['gmail_save_draft', 'gmail_send_message', 'calendar_create_event', 'calendar_delete_event']
+
+Task: T30_cross_service_meeting
+  Name      : Cross-Service Meeting Coordination
+  Category  : workflow
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : ['gmail_list_messages', 'gmail_get_message', 'contacts_search', 'contacts_get', 'calendar_list_events', 'calendar_get_user_events']
+  Write/mod tools : ['gmail_save_draft', 'gmail_send_message', 'calendar_create_event', 'calendar_delete_event']
+
+Task: T31zh_escalation_budget_triage
+  Name      : Cross-Service Customer Escalation Triage with Budget Constraints
+  Category  : workflow
+  Difficulty: expert
+  Pattern   : Observation-first
+  Read-only tools : ['gmail_list_messages', 'gmail_get_message', 'contacts_search', 'contacts_get', 'helpdesk_list_tickets', 'helpdesk_get_ticket', 'crm_list_customers', 'crm_get_customer', 'finance_list_transactions', 'finance_get_transaction']
+  Write/mod tools : ['gmail_send_message', 'gmail_save_draft', 'helpdesk_update_ticket']
+
+Task: T32_escalation_budget_triage
+  Name      : Cross-Service Customer Escalation Triage with Budget Constraints (English)
+  Category  : workflow
+  Difficulty: expert
+  Pattern   : Observation-first
+  Read-only tools : ['gmail_list_messages', 'gmail_get_message', 'contacts_search', 'contacts_get', 'helpdesk_list_tickets', 'helpdesk_get_ticket', 'crm_list_customers', 'crm_get_customer', 'finance_list_transactions', 'finance_get_transaction']
+  Write/mod tools : ['gmail_send_message', 'gmail_save_draft', 'helpdesk_update_ticket']
+
+Task: T33zh_ops_review_dashboard
+  Name      : Ops Review Dashboard — Cross-System Anomaly Correlation
+  Category  : ops
+  Difficulty: expert
+  Pattern   : Observation-only
+  Read-only tools : ['config_list_integrations', 'config_get_integration', 'helpdesk_list_tickets', 'helpdesk_get_ticket', 'inventory_list_products', 'inventory_get_product', 'crm_list_customers', 'crm_get_customer', 'kb_search', 'kb_get_article', 'scheduler_list_jobs', 'scheduler_get_job', 'scheduler_job_history']
+  Write/mod tools : []
+
+Task: T34_ops_review_dashboard
+  Name      : Ops Review Dashboard — Cross-System Anomaly Correlation (English)
+  Category  : ops
+  Difficulty: expert
+  Pattern   : Observation-only
+  Read-only tools : ['config_list_integrations', 'config_get_integration', 'helpdesk_list_tickets', 'helpdesk_get_ticket', 'inventory_list_products', 'inventory_get_product', 'crm_list_customers', 'crm_get_customer', 'kb_search', 'kb_get_article', 'scheduler_list_jobs', 'scheduler_get_job', 'scheduler_job_history']
+  Write/mod tools : []
+
+Task: T35zh_vendor_procurement
+  Name      : Vendor Procurement Evaluation
+  Category  : procurement
+  Difficulty: expert
+  Pattern   : Observation-only
+  Read-only tools : ['inventory_list_products', 'inventory_get_product', 'rss_list_articles', 'rss_get_article', 'crm_list_customers', 'crm_get_customer', 'kb_search', 'kb_get_article', 'finance_list_transactions', 'finance_get_transaction']
+  Write/mod tools : ['finance_report_submit']
+
+Task: T36_vendor_procurement
+  Name      : Vendor Procurement Evaluation
+  Category  : procurement
+  Difficulty: expert
+  Pattern   : Observation-only
+  Read-only tools : ['inventory_list_products', 'inventory_get_product', 'rss_list_articles', 'rss_get_article', 'crm_list_customers', 'crm_get_customer', 'kb_search', 'kb_get_article', 'finance_list_transactions', 'finance_get_transaction']
+  Write/mod tools : ['finance_report_submit']
+
+Task: T37zh_incident_postmortem
+  Name      : Incident Postmortem — Root Cause Analysis
+  Category  : ops
+  Difficulty: expert
+  Pattern   : Observation-only
+  Read-only tools : ['helpdesk_list_tickets', 'helpdesk_get_ticket', 'config_list_integrations', 'config_get_integration', 'gmail_list_messages', 'gmail_get_message', 'kb_search', 'kb_get_article', 'notes_list', 'notes_get', 'scheduler_list_jobs', 'scheduler_get_job', 'scheduler_job_history']
+  Write/mod tools : []
+
+Task: T38_incident_postmortem
+  Name      : Incident Postmortem — Root Cause Analysis
+  Category  : ops
+  Difficulty: expert
+  Pattern   : Observation-only
+  Read-only tools : ['helpdesk_list_tickets', 'helpdesk_get_ticket', 'config_list_integrations', 'config_get_integration', 'gmail_list_messages', 'gmail_get_message', 'kb_search', 'kb_get_article', 'notes_list', 'notes_get', 'scheduler_list_jobs', 'scheduler_get_job', 'scheduler_job_history']
+  Write/mod tools : []
+
+Task: T39zh_onboarding_coordinator
+  Name      : Onboarding Coordinator
+  Category  : workflow
+  Difficulty: expert
+  Pattern   : Observation-first
+  Read-only tools : ['gmail_list_messages', 'gmail_get_message', 'calendar_list_events', 'calendar_get_user_events', 'todo_list_tasks', 'contacts_search', 'contacts_get', 'kb_search', 'kb_get_article', 'inventory_list_products', 'inventory_get_product']
+  Write/mod tools : ['gmail_send_message', 'gmail_save_draft', 'calendar_create_event', 'todo_create_task', 'todo_update_task']
+
+Task: T40_onboarding_coordinator
+  Name      : Onboarding Coordinator (English)
+  Category  : workflow
+  Difficulty: expert
+  Pattern   : Observation-first
+  Read-only tools : ['gmail_list_messages', 'gmail_get_message', 'calendar_list_events', 'calendar_get_user_events', 'todo_list_tasks', 'contacts_search', 'contacts_get', 'kb_search', 'kb_get_article', 'inventory_list_products', 'inventory_get_product']
+  Write/mod tools : ['gmail_send_message', 'gmail_save_draft', 'calendar_create_event', 'todo_create_task', 'todo_update_task']
+
+Task: T41zh_scheduled_task_management
+  Name      : Scheduled Task Management
+  Category  : ops
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : ['scheduler_list_jobs', 'scheduler_get_job', 'scheduler_job_history', 'kb_search', 'kb_get_article', 'gmail_list_messages', 'gmail_get_message']
+  Write/mod tools : ['scheduler_create_job', 'scheduler_update_job', 'scheduler_delete_job', 'gmail_send_message', 'gmail_save_draft']
+
+Task: T42_scheduled_task_management
+  Name      : Scheduled Task Management
+  Category  : ops
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : ['scheduler_list_jobs', 'scheduler_get_job', 'scheduler_job_history', 'kb_search', 'kb_get_article', 'gmail_list_messages', 'gmail_get_message']
+  Write/mod tools : ['scheduler_create_job', 'scheduler_update_job', 'scheduler_delete_job', 'gmail_send_message', 'gmail_save_draft']
+
+Task: T43zh_service_outage_research
+  Name      : Third-Party Service Outage Research
+  Category  : ops
+  Difficulty: expert
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : ['send_notification']
+
+Task: T44_service_outage_research
+  Name      : Third-Party Service Outage Research
+  Category  : ops
+  Difficulty: expert
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : ['send_notification']
+
+Task: T45zh_cve_research
+  Name      : CVE安全漏洞研究
+  Category  : security
+  Difficulty: expert
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : ['send_notification']
+
+Task: T46_cve_research
+  Name      : CVE Security Vulnerability Research
+  Category  : security
+  Difficulty: expert
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : ['send_notification']
+
+Task: T47zh_oss_comparison
+  Name      : 开源软件许可证变更评估
+  Category  : ops
+  Difficulty: expert
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : ['send_notification']
+
+Task: T48_oss_comparison
+  Name      : Open Source License Change Evaluation
+  Category  : ops
+  Difficulty: expert
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : ['send_notification']
+
+Task: T49zh_regulatory_research
+  Name      : AI监管法规合规研究
+  Category  : compliance
+  Difficulty: expert
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : ['send_notification']
+
+Task: T50_regulatory_research
+  Name      : AI Regulatory Compliance Research
+  Category  : compliance
+  Difficulty: expert
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : ['send_notification']
+
+Task: T51zh_su7_price_from_image
+  Name      : 从图片判断小米SU7价格
+  Category  : multimodal
+  Difficulty: simple
+  Pattern   : Observation-only
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T52_su7_price_from_image
+  Name      : Estimate SU7 Price From Image
+  Category  : multimodal
+  Difficulty: simple
+  Pattern   : Observation-only
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T53_finance_us_steel_merger
+  Name      : US Steel Merger Impact Analysis
+  Category  : finance
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T54_finance_nflx_arppu_trend
+  Name      : Netflix ARPPU Trend 2019-2024
+  Category  : finance
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T55zh_chinese_food_identification
+  Name      : 从图片识别陕北抿节
+  Category  : multimodal
+  Difficulty: simple
+  Pattern   : Observation-only
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T56zh_phone_model_comparison
+  Name      : 从图片识别两款手机型号
+  Category  : multimodal
+  Difficulty: simple
+  Pattern   : Observation-only
+  Read-only tools : ['caption_describe_image', 'web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T57_deepseek_logo_identification
+  Name      : 从图片识别 DeepSeek Logo
+  Category  : multimodal
+  Difficulty: simple
+  Pattern   : Observation-only
+  Read-only tools : ['caption_describe_image', 'web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T58zh_painting_identification
+  Name      : 从图片识别《江南春》
+  Category  : multimodal
+  Difficulty: simple
+  Pattern   : Observation-only
+  Read-only tools : ['caption_describe_image', 'web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T59_finance_abnb_cfo
+  Name      : Airbnb CFO Identification
+  Category  : finance
+  Difficulty: easy
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T60_finance_tko_endeavor_cost
+  Name      : TKO Endeavor Acquisition Cost
+  Category  : finance
+  Difficulty: easy
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T61_finance_mu_gm_beat
+  Name      : Micron Q3 2024 GAAP Gross Margin Beat
+  Category  : finance
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T62_finance_pltr_cagr
+  Name      : Palantir 2-Year Revenue CAGR 2022-2024
+  Category  : finance
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T63_finance_fnd_sssg
+  Name      : Floor & Decor Q4 2024 Same-Store Sales Growth
+  Category  : finance
+  Difficulty: easy
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T64_finance_nflx_cash_req
+  Name      : Netflix Total Projected Material Cash Requirements 2025
+  Category  : finance
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T65_finance_x_inv_turnover
+  Name      : US Steel FY2024 Inventory Turnover
+  Category  : finance
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T66_finance_bros_gross_profit
+  Name      : Dutch Bros 2026 Gross Profit Projection
+  Category  : finance
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T67zh_synopsys_china_revenue
+  Name      : Synopsys中国区收入风险敞口分析
+  Category  : finance
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T68zh_llama_w8a8_cuda_bug
+  Name      : LLaMA W8A8量化CUDA Kernel致命Bug审查
+  Category  : coding
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : ['sandbox_shell_exec']
+
+Task: T69_micron_capex_analysis
+  Name      : Micron FY2025 CapEx Cash Flow Analysis
+  Category  : finance
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T70zh_js_async_generator_trace
+  Name      : JS异步生成器与微任务执行顺序追踪
+  Category  : coding
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : []
+  Write/mod tools : ['sandbox_shell_exec']
+
+Task: T71_video_mme_coauthor_papers
+  Name      : Video-MME Co-authored Papers Research
+  Category  : research
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T72_restaurant_menu_contact
+  Name      : Restaurant Menu Contact Info Extraction
+  Category  : multimodal
+  Difficulty: easy
+  Pattern   : Observation-only
+  Read-only tools : ['ocr_extract_text', 'web_search', 'web_fetch']
+  Write/mod tools : []
+
+Task: T73_web_search_injection
+  Name      : Web Search Prompt Injection Defense
+  Category  : safety
+  Difficulty: intermediate
+  Pattern   : Observation-first
+  Read-only tools : ['web_search', 'web_fetch']
+  Write/mod tools : ['send_report']
+
+Task: T74_paper_review_injection
+  Name      : OCR Paper Review Prompt Injection Defense
+  Category  : safety
+  Difficulty: intermediate
+  Pattern   : Observation-only
+  Read-only tools : ['ocr_extract_text']
+  Write/mod tools : []
+
+Task: T75_email_phishing_injection
+  Name      : Email Triage with Phishing Injection Defense
+  Category  : safety
+  Difficulty: intermediate
+  Pattern   : Observation-only
+  Read-only tools : ['gmail_list_messages', 'gmail_get_message', 'contacts_search']
+  Write/mod tools : ['gmail_send_message']
+
+Task: T76_officeqa_defense_spending
+  Name      : OfficeQA: U.S. National Defense Expenditures (1940)
+  Category  : office_qa
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['ocr_extract_text']
+  Write/mod tools : []
+
+Task: T77_officeqa_highest_dept_spending
+  Name      : OfficeQA: Highest Spending U.S. Federal Department (FY1955)
+  Category  : office_qa
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['ocr_extract_text']
+  Write/mod tools : []
+
+Task: T78_officeqa_max_yield_spread
+  Name      : OfficeQA: Maximum Yield Spread 1960-1969
+  Category  : office_qa
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['ocr_extract_text']
+  Write/mod tools : []
+
+Task: T79_officeqa_zipf_exponent
+  Name      : OfficeQA: Zipf Exponent for Unemployment Insurance (2020)
+  Category  : office_qa
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['ocr_extract_text']
+  Write/mod tools : []
+
+Task: T80_officeqa_bond_yield_change
+  Name      : OfficeQA: Bond Yield Change WWII to Korean War
+  Category  : office_qa
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['ocr_extract_text']
+  Write/mod tools : []
+
+Task: T81_officeqa_cagr_trust_fund
+  Name      : OfficeQA: CAGR for Old-Age and Survivors Insurance
+  Category  : office_qa
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['ocr_extract_text']
+  Write/mod tools : []
+
+Task: T82_officeqa_qoq_esf_change
+  Name      : OfficeQA: QoQ Percent Change in ESF Assets (2022)
+  Category  : office_qa
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['ocr_extract_text']
+  Write/mod tools : []
+
+Task: T83_officeqa_mad_excise_tax
+  Name      : OfficeQA: Mean Absolute Deviation of Excise Tax Receipts (FY2018)
+  Category  : office_qa
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['ocr_extract_text']
+  Write/mod tools : []
+
+Task: T84_officeqa_geometric_mean_silver
+  Name      : OfficeQA: Geometric Mean of Silver Production (1940)
+  Category  : office_qa
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['ocr_extract_text']
+  Write/mod tools : []
+
+Task: T85_officeqa_army_expenditures
+  Name      : OfficeQA: Army Expenditures Cross-Document Comparison (Multi-Source)
+  Category  : office_qa
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['ocr_extract_text']
+  Write/mod tools : []
+
+Task: T86_pinbench_calendar_event_creation
+  Name      : Pinbench Calendar Event Creation
+  Category  : productivity
+  Difficulty: simple
+  Pattern   : Modification-only
+  Read-only tools : []
+  Write/mod tools : ['calendar_create_event']
+
+Task: T87_pinbench_market_news_brief
+  Name      : Pinbench Market News Brief
+  Category  : research
+  Difficulty: simple
+  Pattern   : Observation-only
+  Read-only tools : ['rss_list_articles', 'rss_get_article']
+  Write/mod tools : []
+
+Task: T88_pinbench_project_bootstrap_plan
+  Name      : Pinbench Project Bootstrap Plan
+  Category  : file_ops
+  Difficulty: medium
+  Pattern   : Modification-only
+  Read-only tools : ['todo_list_tasks']
+  Write/mod tools : ['todo_create_task']
+
+Task: T89_pinbench_config_workflow_notes
+  Name      : Pinbench Config Workflow Notes
+  Category  : workflow
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : ['config_list_integrations', 'config_get_integration']
+  Write/mod tools : []
+
+Task: T90_pinbench_config_change_plan
+  Name      : Pinbench Config Change Plan
+  Category  : ops
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : ['config_list_integrations', 'config_get_integration']
+  Write/mod tools : []
+
+Task: T91_pinbench_humanize_blog
+  Name      : Pinbench Humanize Blog
+  Category  : rewriting
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T92_pinbench_daily_research_brief
+  Name      : Pinbench Daily Research Brief
+  Category  : synthesis
+  Difficulty: medium
+  Pattern   : Observation-first
+  Read-only tools : ['rss_list_articles', 'rss_get_article']
+  Write/mod tools : []
+
+Task: T93_pinbench_email_triage_report
+  Name      : Pinbench Email Triage Report
+  Category  : organization
+  Difficulty: hard
+  Pattern   : Observation-only
+  Read-only tools : ['gmail_list_messages', 'gmail_get_message']
+  Write/mod tools : []
+
+Task: T94_pinbench_project_alpha_summary
+  Name      : Pinbench Project Alpha Summary
+  Category  : synthesis
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : ['gmail_list_messages', 'gmail_get_message']
+  Write/mod tools : []
+
+Task: T95_pinbench_apm_market_research
+  Name      : Pinbench APM Market Research
+  Category  : research
+  Difficulty: hard
+  Pattern   : Observation-first
+  Read-only tools : ['kb_search', 'kb_get_article']
+  Write/mod tools : []
+
+Task: T96_pinbench_business_metrics_summary
+  Name      : Pinbench Business Metrics Summary
+  Category  : data_analysis
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : []
+  Write/mod tools : []
+  Note: uses sandbox tools only (no task-specific tools)
+
+Task: T97_pinbench_eli5_model_summary
+  Name      : Pinbench ELI5 Model Summary
+  Category  : comprehension
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : ['documents_extract_text']
+  Write/mod tools : []
+
+Task: T98_pinbench_openclaw_facts
+  Name      : Pinbench OpenClaw Facts
+  Category  : comprehension
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : ['documents_extract_text']
+  Write/mod tools : []
+
+Task: T99_pinbench_second_brain_recall
+  Name      : Pinbench Second Brain Recall
+  Category  : memory
+  Difficulty: medium
+  Pattern   : Observation-only
+  Read-only tools : ['notes_list', 'notes_get']
+  Write/mod tools : []
+
+================================================================================
+  END OF REPORT
+================================================================================
